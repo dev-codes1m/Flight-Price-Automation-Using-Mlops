@@ -1,0 +1,37 @@
+base:
+  project: Flight Price Prediction
+  random_state: 42
+  target_col: Price
+
+data_source:
+  s3_source:
+    train_data: source_code/train_data.csv
+    test_data: source_code/test_data.csv
+
+load_data:
+  raw_train_dataset_csv: data/flight_train.csv
+  raw_test_dataset_csv: data/flight_test.csv
+
+
+split_data:
+  train_path: data/processed/flight_train_processed.csv
+  test_path:  data/processed/flight_test_processed.csv
+  test_size: 0.2
+
+
+
+estimators:
+  RandomForestRegressor:
+    params:
+      max_depth: 5
+
+
+model_dir: models
+
+
+reports:
+  params: reports/params.json
+  scores: reports/scores.json
+
+
+webapp_model_dir: prediction_service/model/model.joblib
