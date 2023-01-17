@@ -1,0 +1,3 @@
+#!D:\MLOPS TRAINING SESSIOINS\Wednesday 11,2023\Flight Price Prediction\Flight Price Prediction\.virtualenvs\flight_price_env\Scripts\python.exe
+from numba.pycc import main
+main()

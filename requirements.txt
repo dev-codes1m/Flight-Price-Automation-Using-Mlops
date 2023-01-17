@@ -11,3 +11,4 @@ jupyterlab
 scikit-learn
 argparse
 openpyxl
+mlflow
