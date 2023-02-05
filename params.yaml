@@ -9,8 +9,7 @@ data_source:
     test_data: source_code/test_data.csv
 
 load_data:
-  raw_train_dataset_csv: data/flight_train.csv
-  raw_test_dataset_csv: data/flight_test.csv
+  raw_train_dataset_csv: data/raw/flight_train.csv
 
 
 split_data:
@@ -23,7 +22,7 @@ split_data:
 estimators:
   RandomForestRegressor:
     params:
-      max_depth: 5
+      max_depth: 3
 
 
 model_dir: models
@@ -41,4 +40,4 @@ mlflow_config:
   experiment_name: RandomForestRegressor_Experiment
   run_name: mlops
   registered_model_name: RandomForestFlightPrice
-  remote_server_uri: http://127.0.0.1:5000
+  remote_server_uri: http://127.0.0.1:5000/

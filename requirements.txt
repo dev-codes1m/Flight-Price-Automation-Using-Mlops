@@ -12,3 +12,5 @@ scikit-learn
 argparse
 openpyxl
 mlflow
+psycopg2
+django

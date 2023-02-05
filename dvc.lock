@@ -1,0 +1,43 @@
+schema: '2.0'
+stages:
+  load_data:
+    cmd: python src/load_data.py --config=params.yaml
+    deps:
+    - path: source_code/test_data.csv
+      md5: f037b89599807833bf689db06143a9c8
+      size: 165077
+    - path: source_code/train_data.csv
+      md5: 7107e506580c3d69bee36cd29fa549bc
+      size: 738600
+    - path: src/get_data.py
+      md5: 2ab5878439ebe88cb686e7c4a998a371
+      size: 665
+    - path: src/load_data.py
+      md5: 41b735f03e59badaa2bcd8335946c67e
+      size: 683
+    outs:
+    - path: data/raw/flight_train.csv
+      md5: c19f29e17851c12323c9036f72e08857
+      size: 738600
+  split_data:
+    cmd: python src/split_data.py --config=params.yaml
+    deps:
+    - path: data/raw/flight_train.csv
+      md5: c19f29e17851c12323c9036f72e08857
+      size: 738600
+    - path: src/split_data.py
+      md5: 25a836f6a990d596439997b773969b71
+      size: 1034
+    outs:
+    - path: data/processed/flight_test_processed.csv
+      md5: 3b30ca5a494087729d9a2e5e5ab55020
+      size: 148174
+    - path: data/processed/flight_train_processed.csv
+      md5: a6768e64d333450ce5341a7a49666548
+      size: 590944
+  log_production_model:
+    cmd: python src/log_production_model.py --config=params.yaml
+    deps:
+    - path: src/log_production_model.py
+      md5: e14885abdd95272b755e906f7de4de4d
+      size: 1882
